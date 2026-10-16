@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Icon } from "../components/Icon.jsx";
 import { StatCard } from "../components/StatCard.jsx";
 
@@ -22,7 +23,7 @@ export default function OverviewPage() {
             <h1>Good morning, Kavindu <span className="wave" aria-hidden="true">✳</span></h1>
             <p className="welcome-copy">Here’s what’s happening with your Seettu today.</p>
           </div>
-          <button className="primary-button" type="button"><Icon name="plus" /> Create a group</button>
+          <Link className="primary-button" to="/groups/new"><Icon name="plus" /> Create a group</Link>
         </section>
 
         <section className="stats-grid" aria-label="Your Seettu summary">

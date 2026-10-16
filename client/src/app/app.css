@@ -233,3 +233,14 @@ td { height: 52px; border-bottom: 1px solid #f0f2ee; font-size: 9px; }
 .group-link:hover .group-details strong { color: var(--green); }
 .group-link > svg { width: 15px; height: 15px; color: #9ba29b; }
 .back-link { display: inline-block; margin-bottom: 10px; color: var(--green); font-size: 11px; font-weight: 600; }
+
+/* Create group form */
+.form-panel { max-width: 640px; padding: 26px 28px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.form-field select { height: 42px; padding: 0 12px; border: 1px solid #dfe3dc; border-radius: 8px; background: #fff; font: inherit; font-size: 13px; }
+.form-field select:focus-visible { outline: 2px solid var(--green); outline-offset: 1px; }
+.field-hint { margin: 0; color: var(--muted); font-size: 11px; }
+.form-actions { display: flex; align-items: center; justify-content: flex-end; gap: 18px; margin-top: 6px; }
+.form-actions .primary-button { height: 44px; padding: 0 22px; font-size: 13px; }
+.success-banner { margin-bottom: 18px; padding: 12px 14px; border-radius: 8px; background: #eff5ed; color: #2f6a4c; font-size: 12px; }
+@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }

@@ -5,6 +5,7 @@ import { Sidebar } from "../components/Sidebar.jsx";
 const pageTitles = {
   "/": "Overview",
   "/groups": "My groups",
+  "/groups/new": "Create group",
   "/contributions": "Contributions",
   "/reports": "Reports",
 };

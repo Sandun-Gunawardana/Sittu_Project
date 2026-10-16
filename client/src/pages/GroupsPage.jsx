@@ -11,6 +11,7 @@ export default function GroupsPage() {
           <h1>My groups</h1>
           <p className="welcome-copy">Seettu groups you organise or belong to.</p>
         </div>
+        <Link className="primary-button" to="/groups/new"><Icon name="plus" /> Create a group</Link>
       </section>
 
       <section className="panel groups-panel" aria-label="Group list">

@@ -4,6 +4,7 @@ import OverviewPage from "../pages/OverviewPage.jsx";
 import LoginPage from "../pages/LoginPage.jsx";
 import RegisterPage from "../pages/RegisterPage.jsx";
 import GroupsPage from "../pages/GroupsPage.jsx";
+import CreateGroupPage from "../pages/CreateGroupPage.jsx";
 import GroupDetailsPage from "../pages/GroupDetailsPage.jsx";
 import PlaceholderPage from "../pages/PlaceholderPage.jsx";
 
@@ -15,6 +16,7 @@ function App() {
       <Route element={<AppLayout />}>
         <Route index element={<OverviewPage />} />
         <Route path="groups" element={<GroupsPage />} />
+        <Route path="groups/new" element={<CreateGroupPage />} />
         <Route path="groups/:groupId" element={<GroupDetailsPage />} />
         <Route path="contributions" element={<PlaceholderPage title="Contributions" description="Contribution history and status will appear here." />} />
         <Route path="reports" element={<PlaceholderPage title="Reports" description="Group and member summaries will appear here." />} />
