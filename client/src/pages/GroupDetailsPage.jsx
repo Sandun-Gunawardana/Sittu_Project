@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Icon } from "../components/Icon.jsx";
+import { ContributionsPanel, statusClass, summarise } from "../components/ContributionsPanel.jsx";
 import { RoundsPanel } from "../components/RoundsPanel.jsx";
 import { StatCard } from "../components/StatCard.jsx";
 import PlaceholderPage from "./PlaceholderPage.jsx";
-import { getGroup, initialsOf } from "../services/mockGroups.js";
+import { formatLkr, getGroup, initialsOf } from "../services/mockGroups.js";
 
 export default function GroupDetailsPage() {
   const { groupId } = useParams();
@@ -19,6 +20,12 @@ export default function GroupDetailsPage() {
 
 function GroupDetails({ group }) {
   const [rounds, setRounds] = useState(group.rounds);
+  const [contributions, setContributions] = useState(() => Object.fromEntries(group.members.map((member) => [member.name, member.status])));
+  const totals = summarise(group, contributions);
+
+  function changeStatus(name, status) {
+    setContributions((current) => ({ ...current, [name]: status }));
+  }
 
   function selectRecipient(number, name) {
     setRounds((current) => current.map((round) => (round.number === number ? { ...round, recipient: name } : round)));
@@ -37,7 +44,7 @@ function GroupDetails({ group }) {
       <section className="stats-grid" aria-label="Group summary">
         <StatCard label="Contribution" value={group.amount} note={group.frequency} icon="activity" tone="lavender" />
         <StatCard label="Members" value={String(group.members.length).padStart(2, "0")} note={<span className="note-accent">{group.status}</span>} icon="groups" tone="green" />
-        <StatCard label="Next due" value={group.nextDue} note={`Round ${group.currentRound}`} icon="calendar" tone="orange" />
+        <StatCard label="Confirmed this round" value={formatLkr(totals.received)} note={`${formatLkr(totals.outstanding)} outstanding`} icon="calendar" tone="orange" />
       </section>
 
       <section className="panel activity-panel">
@@ -54,7 +61,7 @@ function GroupDetails({ group }) {
                 <tr key={member.name}>
                   <td><span className="member-cell"><span className="avatar avatar-user">{initialsOf(member.name)}</span><strong>{member.name}</strong></span></td>
                   <td className="table-muted">{member.role}</td>
-                  <td><span className={`activity-status ${member.status === "Pending" ? "activity-pending" : "activity-confirmed"}`}><span />{member.status}</span></td>
+                  <td><span className={`activity-status ${statusClass[contributions[member.name]]}`}><span />{contributions[member.name]}</span></td>
                   <td className="table-muted">{rounds.some((round) => round.recipient === member.name) ? "Yes" : "Not yet"}</td>
                 </tr>
               ))}
@@ -62,6 +69,8 @@ function GroupDetails({ group }) {
           </table>
         </div>
       </section>
+
+      <ContributionsPanel group={group} contributions={contributions} onChangeStatus={changeStatus} />
 
       <RoundsPanel group={group} rounds={rounds} onSelectRecipient={selectRecipient} />
 

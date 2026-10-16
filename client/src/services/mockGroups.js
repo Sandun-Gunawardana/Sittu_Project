@@ -5,6 +5,7 @@ export const mockGroups = [
     name: "Family Circle",
     color: "sage",
     amount: "LKR 5,000",
+    amountValue: 5000,
     frequency: "Monthly",
     nextDue: "Oct 24, 2026",
     currentRound: 3,
@@ -18,7 +19,7 @@ export const mockGroups = [
       { name: "Nimali Perera", role: "Organizer", status: "Confirmed" },
       { name: "Kavindu Amarasinghe", role: "Member", status: "Confirmed" },
       { name: "Ruwan Silva", role: "Member", status: "Pending" },
-      { name: "Hasini Fernando", role: "Member", status: "Confirmed" },
+      { name: "Hasini Fernando", role: "Member", status: "Not paid" },
     ],
   },
   {
@@ -26,6 +27,7 @@ export const mockGroups = [
     name: "Weekend Friends",
     color: "peach",
     amount: "LKR 3,000",
+    amountValue: 3000,
     frequency: "Weekly",
     nextDue: "Oct 28, 2026",
     currentRound: 3,
@@ -46,6 +48,7 @@ export const mockGroups = [
     name: "Office Seettu",
     color: "blue",
     amount: "LKR 10,000",
+    amountValue: 10000,
     frequency: "Monthly",
     nextDue: "Nov 02, 2026",
     currentRound: 2,
@@ -66,6 +69,10 @@ export const mockGroups = [
 export function eligibleRecipients(group, rounds) {
   const received = new Set(rounds.map((round) => round.recipient).filter(Boolean));
   return group.members.filter((member) => !received.has(member.name));
+}
+
+export function formatLkr(value) {
+  return `LKR ${value.toLocaleString("en-US")}`;
 }
 
 export function getGroup(id) {
