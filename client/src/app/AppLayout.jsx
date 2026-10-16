@@ -17,7 +17,7 @@ export default function AppLayout() {
       <Sidebar />
       <main className="main-content">
         <header className="topbar">
-          <div className="breadcrumb"><span>Workspace</span><span className="breadcrumb-slash">/</span><strong>{pageTitles[pathname] ?? "Not found"}</strong></div>
+          <div className="breadcrumb"><span>Workspace</span><span className="breadcrumb-slash">/</span><strong>{pageTitles[pathname] ?? (pathname.startsWith("/groups/") ? "Group details" : "Not found")}</strong></div>
           <div className="topbar-actions">
             <span className="demo-badge"><span /> Sample dashboard</span>
             <button className="icon-button search-button" type="button" aria-label="Search"><Icon name="search" /></button>
