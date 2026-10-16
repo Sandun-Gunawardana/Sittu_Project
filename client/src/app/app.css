@@ -207,3 +207,21 @@ td { height: 52px; border-bottom: 1px solid #f0f2ee; font-size: 9px; }
   .filter-button { align-self: flex-end; }
   .page-footer { flex-direction: column; gap: 6px; }
 }
+
+/* Authentication screens */
+.auth-shell { min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+.auth-card { width: 100%; max-width: 400px; padding: 34px 32px 26px; background: #fff; border: 1px solid var(--line); border-radius: 16px; }
+.auth-brand { padding: 0; margin-bottom: 26px; }
+.auth-card h1 { margin: 0 0 6px; font: 800 24px Manrope, sans-serif; letter-spacing: -.6px; }
+.auth-subtitle { margin: 0 0 22px; color: var(--muted); font-size: 13px; }
+.auth-form { display: grid; gap: 15px; }
+.form-field { display: grid; gap: 6px; }
+.form-field label { font-size: 12px; font-weight: 600; }
+.form-field input { height: 42px; padding: 0 12px; border: 1px solid #dfe3dc; border-radius: 8px; background: #fff; font: inherit; font-size: 13px; }
+.form-field input:focus-visible { outline: 2px solid var(--green); outline-offset: 1px; }
+.form-field input[aria-invalid="true"] { border-color: #c0483a; }
+.field-error { color: #c0483a; font-size: 11px; }
+.auth-submit { width: 100%; height: 44px; margin-top: 4px; font-size: 13px; }
+.auth-footer { margin: 20px 0 0; text-align: center; color: var(--muted); font-size: 12px; }
+.auth-footer a { color: var(--green); font-weight: 700; }
+.auth-note { margin: 14px 0 0; text-align: center; color: #9ba29b; font-size: 10px; }

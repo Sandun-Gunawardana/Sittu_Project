@@ -1,11 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 import AppLayout from "./AppLayout.jsx";
 import OverviewPage from "../pages/OverviewPage.jsx";
+import LoginPage from "../pages/LoginPage.jsx";
+import RegisterPage from "../pages/RegisterPage.jsx";
 import PlaceholderPage from "../pages/PlaceholderPage.jsx";
 
 function App() {
   return (
     <Routes>
+      <Route path="login" element={<LoginPage />} />
+      <Route path="register" element={<RegisterPage />} />
       <Route element={<AppLayout />}>
         <Route index element={<OverviewPage />} />
         <Route path="groups" element={<PlaceholderPage title="My groups" description="Your Seettu groups will be listed here." />} />
