@@ -27,3 +27,17 @@ and a MongoDB database.
 
 The initial release is intended to track contributions and payouts; it will not
 process or transfer money.
+
+## Frontend starter
+
+The first frontend slice is a static React dashboard mockup with fictional
+sample data. It does not connect to an API or process payments.
+
+```sh
+cd client
+npm install
+npm run dev
+```
+
+Create the remaining frontend features incrementally after reviewing the
+dashboard concept.
