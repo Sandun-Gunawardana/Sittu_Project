@@ -244,3 +244,10 @@ td { height: 52px; border-bottom: 1px solid #f0f2ee; font-size: 9px; }
 .form-actions .primary-button { height: 44px; padding: 0 22px; font-size: 13px; }
 .success-banner { margin-bottom: 18px; padding: 12px 14px; border-radius: 8px; background: #eff5ed; color: #2f6a4c; font-size: 12px; }
 @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+/* Rounds */
+.activity-panel + .activity-panel { margin-top: 18px; }
+.recipient-form { display: flex; align-items: flex-end; gap: 14px; padding: 18px 10px 20px; border-top: 1px solid #f0f2ee; }
+.recipient-form .form-field { flex: 1; max-width: 340px; }
+.recipient-form .primary-button { height: 42px; padding: 0 18px; font-size: 12px; }
+.panel-note { margin: 0; padding: 16px 10px 20px; color: var(--muted); font-size: 11px; }

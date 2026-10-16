@@ -55,7 +55,7 @@ export default function OverviewPage() {
           <aside className="panel next-panel">
             <div className="next-card-top"><span className="next-icon"><Icon name="calendar" /></span><span className="upcoming-label">UPCOMING</span></div>
             <h2>Your next contribution</h2>
-            <p className="next-group-name">Family Circle <span>·</span> Round 04</p>
+            <p className="next-group-name">Family Circle <span>·</span> Round 03</p>
             <div className="next-amount">LKR 5,000</div>
             <div className="due-date"><span className="due-dot" /> Due Saturday, October 24</div>
             <div className="progress-track"><span /></div>

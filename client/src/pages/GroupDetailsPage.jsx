@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Icon } from "../components/Icon.jsx";
+import { RoundsPanel } from "../components/RoundsPanel.jsx";
 import { StatCard } from "../components/StatCard.jsx";
 import PlaceholderPage from "./PlaceholderPage.jsx";
 import { getGroup, initialsOf } from "../services/mockGroups.js";
@@ -10,6 +12,16 @@ export default function GroupDetailsPage() {
 
   if (!group) {
     return <PlaceholderPage title="Group not found" description="This group doesn't exist or you don't have access to it." />;
+  }
+
+  return <GroupDetails key={group.id} group={group} />;
+}
+
+function GroupDetails({ group }) {
+  const [rounds, setRounds] = useState(group.rounds);
+
+  function selectRecipient(number, name) {
+    setRounds((current) => current.map((round) => (round.number === number ? { ...round, recipient: name } : round)));
   }
 
   return (
@@ -43,13 +55,15 @@ export default function GroupDetailsPage() {
                   <td><span className="member-cell"><span className="avatar avatar-user">{initialsOf(member.name)}</span><strong>{member.name}</strong></span></td>
                   <td className="table-muted">{member.role}</td>
                   <td><span className={`activity-status ${member.status === "Pending" ? "activity-pending" : "activity-confirmed"}`}><span />{member.status}</span></td>
-                  <td className="table-muted">{member.received ? "Yes" : "Not yet"}</td>
+                  <td className="table-muted">{rounds.some((round) => round.recipient === member.name) ? "Yes" : "Not yet"}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </section>
+
+      <RoundsPanel group={group} rounds={rounds} onSelectRecipient={selectRecipient} />
 
       <footer className="page-footer"><span>Digital Seettu</span><span>This is a visual sample with fictional data. No payments are processed.</span></footer>
     </div>
