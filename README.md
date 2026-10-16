@@ -28,10 +28,10 @@ and a MongoDB database.
 The initial release is intended to track contributions and payouts; it will not
 process or transfer money.
 
-## Frontend starter
+## Frontend sample
 
-The first frontend slice is a static React dashboard mockup with fictional
-sample data. It does not connect to an API or process payments.
+The frontend is a React (Vite) prototype that uses fictional mock data. It has
+no backend, saves nothing and does not process payments.
 
 ```sh
 cd client
@@ -39,5 +39,17 @@ npm install
 npm run dev
 ```
 
-Create the remaining frontend features incrementally after reviewing the
-dashboard concept.
+Screens (all sample data, held in memory only):
+
+| Route | Screen |
+| --- | --- |
+| `/` | Dashboard overview |
+| `/login`, `/register` | Login and register forms with validation |
+| `/groups` | My groups list |
+| `/groups/new` | Create-group form with validation |
+| `/groups/:groupId` | Group details: members, contributions (record, confirm, dispute) and rounds (manual recipient selection) |
+| `/contributions` | Contribution history with status and group filters |
+| `/reports` | Group summaries and unconfirmed contributions |
+
+Mock data lives in `client/src/services/` so it can later be replaced by real
+API calls. Totals are calculated from confirmed contributions only.
