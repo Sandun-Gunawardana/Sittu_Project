@@ -270,3 +270,6 @@ td { height: 52px; border-bottom: 1px solid #f0f2ee; font-size: 9px; }
 /* Filters */
 .filter-row { display: flex; flex-wrap: wrap; gap: 15px; padding: 4px 10px 6px; }
 .filter-row .form-field { min-width: 180px; }
+
+.table-link { color: var(--green); font-weight: 600; }
+.table-link:hover { text-decoration: underline; }

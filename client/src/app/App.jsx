@@ -7,6 +7,7 @@ import GroupsPage from "../pages/GroupsPage.jsx";
 import CreateGroupPage from "../pages/CreateGroupPage.jsx";
 import GroupDetailsPage from "../pages/GroupDetailsPage.jsx";
 import ContributionsPage from "../pages/ContributionsPage.jsx";
+import ReportsPage from "../pages/ReportsPage.jsx";
 import PlaceholderPage from "../pages/PlaceholderPage.jsx";
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         <Route path="groups/new" element={<CreateGroupPage />} />
         <Route path="groups/:groupId" element={<GroupDetailsPage />} />
         <Route path="contributions" element={<ContributionsPage />} />
-        <Route path="reports" element={<PlaceholderPage title="Reports" description="Group and member summaries will appear here." />} />
+        <Route path="reports" element={<ReportsPage />} />
         <Route path="*" element={<PlaceholderPage title="Page not found" description="The page you're looking for doesn't exist." />} />
       </Route>
     </Routes>
